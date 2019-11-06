@@ -1,0 +1,14 @@
+---
+apiVersion: v1 #another way"apps/betav1" but making pods write v1 only#version of api used by kubectl
+kind: Pod  #defines what u want to launch deployment,replication,server,ingress,volume
+metadata:
+ name: muditsamplepod  #choose pod name diff
+
+spec:         #defines all conf should be in containers
+ containers:
+  - image: nginx         #image name for container
+    name: c1     #container name could be same in kube-architecture
+    ports:
+     - containerPort: 80   #port running inside container
+    imagePullPolicy: IfNotPresent  #optional statement
+ 
