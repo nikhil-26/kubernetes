@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: nikdep2service1    #this will create single IP to access pods
+
+spec:
+ type: NodePort   # only can access from cluster means either master or worker
+ ports:
+  - targetPort: 80 # port of pod -- in reality port of container - this field is optional
+    port: 80   # this field is mandatory and this is port of service IP
+    nodePort: 30026
+ selector:
+  name: nikapp
+          

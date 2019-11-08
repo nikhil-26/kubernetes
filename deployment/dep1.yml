@@ -1,0 +1,23 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ name: nik-dep1
+ labels:
+  name: nikapp       
+spec:
+ replicas: 2
+ template:
+  metadata:
+   labels:
+    name: nikapp
+  spec:
+   containers:
+    - name: c1
+      image: nginx
+      ports:
+       - containerPort: 80
+      imagePullPolicy: IfNotPresent  
+
+
+
