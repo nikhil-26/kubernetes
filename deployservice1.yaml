@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: mdp-service1    #create singleIp to access pods ->can define label here but not necessary
+
+spec:
+ type: ClusterIP   #only van access from inside cluster but for outside use "NodePort"
+ ports:
+  - targetPort: 80   #port of POD  | container ---> optional "service can detect it"
+    port: 80         #port of service ip --> mandatory field
+ selector:
+  name: msapp       #label of pods to associate with service
