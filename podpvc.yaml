@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: nikhil
+  labels:
+    run: nkweb
+  name: nkweb
+spec:
+  containers:
+  - image: nginx
+    name: nkweb
+    ports:
+    - containerPort: 80
+    volumeMounts:
+     - name: nkmyvol
+       mountPath: /usr/share/nginx/html/
+
+  volumes:
+   - name: nkmyvol    #volume creation
+     persistentVolumeClaim:
+      claimName: nkpvc1
