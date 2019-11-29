@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: muditpvc1
+ namespace: mudit
+spec:
+ accessModes:
+  - ReadWriteOnce
+ storageClassName: good
+ resources:
+  requests:
+   storage: 1Gi
